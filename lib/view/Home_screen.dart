@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/movie_details_screen.dart';
 import 'package:movie_app/theme/app_theme.dart';
 import 'package:movie_app/widgets/new_release_movie_item.dart';
 
@@ -26,7 +27,9 @@ class HomeScreen extends StatelessWidget {
                   AssetImage('assets/Image_movie.png'))
               ),
             ),
-            IconButton(onPressed: (){}, icon: Icon(
+            IconButton(onPressed: (){
+              Navigator.of(context).pushNamed(MovieDetailsScreen.routeName);
+            }, icon: Icon(
               Icons.play_circle,color: AppTheme.white,
               size: 50.sp,
             ))

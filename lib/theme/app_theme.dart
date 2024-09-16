@@ -12,22 +12,29 @@ class AppTheme{
   //514F4F
   static const Color bookMarkColor=Color(0xFF514F4F);
   static const Color containerColor=Color(0xFF282A28);
-  static const Color recomendedFilm=Color(0xFF707070) ;
+  // static const Color recomendedFilm=Color(0xFF707070) ;
+  static const Color appBarColor=Color(0xFF1D1E1D);
+  static const Color recomendedFilm=Color(0xFF343534) ;
+  //343534
   static ThemeData lightTheme=ThemeData(
     scaffoldBackgroundColor: primaryColor,
-    textTheme: TextTheme(
+    appBarTheme: const AppBarTheme(
+      backgroundColor:AppTheme.appBarColor,
+      foregroundColor: AppTheme.white
+      ),
+    textTheme: const TextTheme(
       titleLarge: TextStyle(
         color: white,fontSize: 15,
         fontWeight: FontWeight.w400,
         fontFamily: 'Inter'
       ),
       headlineSmall: TextStyle(
-          color: grey,fontSize: 10,
-          fontWeight: FontWeight.w400,
+          color: grey,fontSize: 13,
+          fontWeight: FontWeight.w500,
           fontFamily: 'Inter'
       ),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: black,
       showSelectedLabels: true,
       showUnselectedLabels: true,

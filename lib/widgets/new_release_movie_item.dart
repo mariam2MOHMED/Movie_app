@@ -9,19 +9,19 @@ class newReleaseMovieItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 10,top: 5),
+      padding: const EdgeInsets.only(left: 10,top: 5),
       child: Stack(
         alignment: AlignmentDirectional.topStart,
       children: [
         Container(
       width: MediaQuery.of(context).size.width*.25,
       height: 128.h,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(image:
         AssetImage("assets/film_poster.png"))
       ),
         ),
-        PositionedDirectional(
+        const PositionedDirectional(
           top: 10,
           child: ImageIcon(
             AssetImage("assets/bookmark.png"),
