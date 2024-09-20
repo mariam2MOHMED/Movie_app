@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:movie_app/theme/app_theme.dart';
+
 
 class watchListScreen extends StatelessWidget {
   const watchListScreen({super.key});

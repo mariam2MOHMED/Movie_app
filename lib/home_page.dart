@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/theme/app_theme.dart';
-import 'package:movie_app/view/home_screen.dart';
+import 'package:movie_app/pages/home_screen/Home_screen.dart';
+
+
 import 'package:movie_app/view/browse.dart';
 import 'package:movie_app/view/search_screen.dart';
 import 'package:movie_app/view/wish_list.dart';

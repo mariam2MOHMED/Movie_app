@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/theme/app_theme.dart';
+
+import '../shared/theme/theme.dart';
+
 
 class recomendedMovieItem extends StatelessWidget {
   const recomendedMovieItem({super.key});

@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/theme/app_theme.dart';
+
 import 'package:movie_app/widgets/default_elevated_button.dart';
 import 'package:movie_app/widgets/recomended_film.dart';
+
+import 'shared/theme/theme.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   static const routeName = "/movieDetails";

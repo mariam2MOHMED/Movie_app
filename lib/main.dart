@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/movie_details_screen.dart';
-import 'package:movie_app/theme/app_theme.dart';
+
 import 'package:movie_app/home_page.dart';
+import 'package:movie_app/shared/theme/theme.dart';
 
 void main() {
   runApp(const MovieApp());

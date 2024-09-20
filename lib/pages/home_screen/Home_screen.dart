@@ -1,13 +1,18 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/movie_details_screen.dart';
-import 'package:movie_app/theme/app_theme.dart';
+import 'package:movie_app/pages/home_screen/popular/view/widgets/movie_card.dart';
+import 'package:movie_app/pages/home_screen/popular/view/widgets/movie_carousel.dart';
+
+
 import 'package:movie_app/widgets/new_release_movie_item.dart';
 
-import '../widgets/recomended_film.dart';
+import '../../shared/theme/theme.dart';
+import '../../widgets/recomended_film.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -16,25 +21,7 @@ class HomeScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Stack(
-          alignment: AlignmentDirectional.center,
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 217.h,
-              decoration: BoxDecoration(
-                  image: DecorationImage(image:
-                  AssetImage('assets/Image_movie.png'))
-              ),
-            ),
-            IconButton(onPressed: (){
-              Navigator.of(context).pushNamed(MovieDetailsScreen.routeName);
-            }, icon: Icon(
-              Icons.play_circle,color: AppTheme.white,
-              size: 50.sp,
-            ))
-          ],
-        ),
+        movieCarouselSlider(),
         SizedBox(height: 10.h,),
         Text(" Dora and the lost city of gold",
           style:Theme.of(context).textTheme.titleLarge ,),
@@ -45,7 +32,7 @@ class HomeScreen extends StatelessWidget {
         SizedBox(height: 10.h,),
         Container(
           width: MediaQuery.of(context).size.width,
-          height: 170.h,
+          height: MediaQuery.of(context).size.height*0.3,
           decoration: BoxDecoration(
             color:AppTheme.containerColor
           ),
@@ -73,7 +60,7 @@ class HomeScreen extends StatelessWidget {
         Expanded(
           child: Container(
             width: MediaQuery.of(context).size.width,
-            
+            height: MediaQuery.of(context).size.height*0.4,
             decoration: BoxDecoration(
                 color:AppTheme.containerColor
             ),

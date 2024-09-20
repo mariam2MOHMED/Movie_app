@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:movie_app/theme/app_theme.dart';
+
 
 class BrowseScreen extends StatelessWidget {
   const BrowseScreen({super.key});

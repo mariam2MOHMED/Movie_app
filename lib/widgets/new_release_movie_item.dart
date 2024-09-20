@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/theme/app_theme.dart';
+
+
+import '../shared/theme/theme.dart';
 
 class newReleaseMovieItem extends StatelessWidget {
   const newReleaseMovieItem({super.key});
@@ -13,22 +15,16 @@ class newReleaseMovieItem extends StatelessWidget {
       child: Stack(
         alignment: AlignmentDirectional.topStart,
       children: [
-        Container(
-      width: MediaQuery.of(context).size.width*.25,
-      height: 128.h,
-      decoration: const BoxDecoration(
-        image: DecorationImage(image:
-        AssetImage("assets/film_poster.png"))
-      ),
+
+        Image.asset(
+          'assets/film_poster.png',
+          fit: BoxFit.cover,
+          width: MediaQuery.of(context).size.width * 0.25,
+          height: MediaQuery.of(context).size.height * 0.2,
         ),
-        const PositionedDirectional(
-          top: 10,
-          child: ImageIcon(
-            AssetImage("assets/bookmark.png"),
-            color: AppTheme.grey,size: 20,),
-        ),
-      // Icon(Icons.bookmark_add_rounded,size: 27,
-      // color: AppTheme.bookMarkColor,)
+        Image.asset("assets/bookmark.png"),
+
+
       ],
       ),
     );

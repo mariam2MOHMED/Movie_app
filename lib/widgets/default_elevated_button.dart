@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/theme/app_theme.dart';
+
+import '../shared/theme/theme.dart';
+
 
 class DefaultElevatedButton extends StatelessWidget {
   const DefaultElevatedButton({super.key});
