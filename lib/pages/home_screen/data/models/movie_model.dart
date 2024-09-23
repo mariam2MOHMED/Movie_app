@@ -18,7 +18,7 @@ class MovieModel extends Movie{
          genre_ids: List<int>.from(json['genre_ids']),
          title: json['original_title'],
          overView: json['overview'],
-         voteAverage: json['vote_average'],
+         voteAverage: json['vote_average'].toDouble(),
          releaseData: json['release_date'],);
 
 }

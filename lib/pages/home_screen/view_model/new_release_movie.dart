@@ -2,13 +2,15 @@
 
 import '../data/models/movie.dart';
 import '../data/repository/base_movie_repositry.dart';
+import 'package:dartz/dartz.dart';
 
-class GetNewReleaseMovie{
+import '../../../shared/error/failure.dart';
+class GetNewReleaseMovieiewModel{
   final BaseMovieRepository baseMovieRepository;
-  GetNewReleaseMovie(
+  GetNewReleaseMovieiewModel(
       this.baseMovieRepository
       );
-  Future<List<Movie>> getNewRelease()async{
+  Future<Either<Failure,List<Movie>>> getNewRelease()async{
     return await baseMovieRepository.getNewRealeasesMovie();
   }
 }

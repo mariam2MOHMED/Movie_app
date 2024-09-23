@@ -1,10 +1,13 @@
+import 'package:dartz/dartz.dart';
+
+import '../../../shared/error/failure.dart';
 import '../data/models/movie.dart';
 import '../data/repository/base_movie_repositry.dart';
 
-class GetRecommendedMovies{
+class GetRecommendedMoviesiewModel{
   final BaseMovieRepository baseMovieRepository;
-  GetRecommendedMovies(this.baseMovieRepository);
-  Future<List<Movie>>getRecommanded()async{
+  GetRecommendedMoviesiewModel(this.baseMovieRepository);
+  Future<Either<Failure,List<Movie>>> getRecommanded()async{
     return baseMovieRepository.getRecommendedMovie();
   }
 }

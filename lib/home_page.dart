@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/pages/home_screen/Home_screen.dart';
+import 'package:movie_app/pages/home_screen/data/data_sources/movie_remote_data_sources.dart';
+import 'package:movie_app/pages/home_screen/data/repository/base_movie_repositry.dart';
+import 'package:movie_app/pages/home_screen/data/repository/movie_repositry.dart';
+import 'package:movie_app/pages/home_screen/view_model/papular_view_model.dart';
 
 
 import 'package:movie_app/view/browse.dart';
@@ -23,6 +27,12 @@ class _HomePageState extends State<HomePage> {
     watchListScreen()
   ];
   int currIndex=0;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,5 +60,13 @@ BottomNavigationBarItem(
 body:tabs[currIndex],
 
     );
+  }
+  void getData()async{
+    BaseMovieRemoteDataSources baseMovieRemoteDataSources=
+    MovieRemoteDataSources();
+    BaseMovieRepository baseMovieRepository=
+        MovieRepositry(baseMovieRemoteDataSources);
+   final res= await GetPapularMovieViewModel(baseMovieRepository).extxute();
+ print(res);
   }
 }

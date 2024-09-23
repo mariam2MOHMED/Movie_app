@@ -71,7 +71,7 @@ class HomeScreen extends StatelessWidget {
               children: [
 
                 SizedBox(height: 5.h,),
-                Text("  Recomended ",
+                Text("   Recomended ",
                   style:Theme.of(context).textTheme.titleLarge ,),
                 Expanded(
                   child: ListView.separated(
