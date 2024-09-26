@@ -14,6 +14,7 @@ class MovieRemoteDataSources extends BaseMovieRemoteDataSources{
  final dio=Dio();
   final response=await dio
       .get(ApiConstant.popular);
+  print(response);
 if(response.statusCode==200){
 
   return List<MovieModel>.from((response.data["results"]

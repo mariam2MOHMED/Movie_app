@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:google_fonts/google_fonts.dart';
 class AppTheme{
   static const Color primaryColor=Color(0xFF121312);
   static const Color gold=Color(0xFFFFBB3B);
@@ -22,18 +23,32 @@ class AppTheme{
           backgroundColor:AppTheme.appBarColor,
           foregroundColor: AppTheme.white
       ),
-      textTheme: const TextTheme(
-        titleLarge: TextStyle(
-            color: white,fontSize: 15,
-            fontWeight: FontWeight.w400,
-            fontFamily: 'Inter'
+      textTheme: GoogleFonts.latoTextTheme(
+
+      ).copyWith(
+        titleLarge: GoogleFonts.inter(
+          color: white,fontSize: 15,
+              fontWeight: FontWeight.w400,
         ),
-        headlineSmall: TextStyle(
-            color: grey,fontSize: 13,
-            fontWeight: FontWeight.w500,
-            fontFamily: 'Inter'
-        ),
-      ),
+        headlineSmall: GoogleFonts.inter(
+          color: grey,fontSize: 13,
+              fontWeight: FontWeight.w500,
+        )
+      )
+      // const TextTheme(
+      //   titleLarge:
+      //   TextStyle(
+      //       color: white,fontSize: 15,
+      //       fontWeight: FontWeight.w400,
+      //       fontFamily: 'Inter'
+      //   ),
+      //   headlineSmall: TextStyle(
+      //       color: grey,fontSize: 13,
+      //       fontWeight: FontWeight.w500,
+      //       fontFamily: 'Inter'
+      //   ),
+      // ),
+      ,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: black,
         showSelectedLabels: true,

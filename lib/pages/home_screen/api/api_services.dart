@@ -5,14 +5,14 @@ import 'package:http/http.dart' as http;
 import 'package:movie_app/pages/home_screen/api/api_constant.dart';
 
 
-class ApiServices{
- static getPapular()async{
-
-final dio=Dio();
-final response=await dio
-    .get("https://api.themoviedb.org/3/movie/popular?language=en-US&api_key=ffc1f879898e670e13d37297ed30bbbc");
-
-  }
+// class ApiServices{
+//  static getPapular()async{
+//
+// final dio=Dio();
+// final response=await dio
+//     .get("https://api.themoviedb.org/3/movie/popular?language=en-US&api_key=ffc1f879898e670e13d37297ed30bbbc");
+//
+//   }
 // static Future<MovieVedio?> getVedio()async{
 // try{
 //   final uri=Uri.https(
@@ -38,4 +38,4 @@ final response=await dio
 //  print("the error is $error");
 // }
 // }
-}
+//}

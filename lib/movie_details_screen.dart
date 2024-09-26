@@ -151,7 +151,7 @@ class MovieDetailsScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 3),
                     width: MediaQuery.of(context).size.width,
                     decoration:
-                        const BoxDecoration(color: AppTheme.containerColor),
+                    const BoxDecoration(color: AppTheme.containerColor),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -171,7 +171,7 @@ class MovieDetailsScreen extends StatelessWidget {
                         ),
                         Expanded(
                           child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
+                              scrollDirection: Axis.horizontal,
                               // scrollDirection: Axis.horizontal,
                               itemBuilder: (context, index) {
                                 return const recomendedMovieItem();
