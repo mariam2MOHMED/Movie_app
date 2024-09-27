@@ -10,6 +10,7 @@ import 'package:movie_app/shared/theme/theme.dart';
 import 'firebase_options.dart';
 
 void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
   ServicesLocator().init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

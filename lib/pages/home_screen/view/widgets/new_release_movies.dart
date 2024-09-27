@@ -8,6 +8,7 @@ import 'package:movie_app/pages/home_screen/api/api_constant.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_bloc.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_state.dart';
 import '../../../../shared/theme/theme.dart';
+import 'book_mark.dart';
 // class newReleaseMovieItem extends StatelessWidget {
 //   const newReleaseMovieItem({super.key});
 //
@@ -76,13 +77,13 @@ builder: (context,state){
                           fit: BoxFit.cover,
                           width: MediaQuery.of(context).size.width * 0.25,
                           height: MediaQuery.of(context).size.height * 0.2,
-                          errorWidget: (context,url,error)=>Icon(
+                          errorWidget: (context,url,error)=>
+                              Icon(
                               Icons.image_not_supported
                           ,color: AppTheme.grey,size: 35,),
                         ),
-                        GestureDetector(
-                            onTap: (){},
-                            child: Image.asset("assets/bookmark.png")),
+                        //book mark
+                        bookMark(),
 
 
                       ],

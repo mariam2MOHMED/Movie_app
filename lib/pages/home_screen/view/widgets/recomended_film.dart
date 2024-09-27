@@ -8,6 +8,7 @@ import 'package:movie_app/pages/home_screen/cubit/movies_bloc.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_state.dart';
 
 import '../../../../shared/theme/theme.dart';
+import 'book_mark.dart';
 
 
 
@@ -64,7 +65,7 @@ class recommendedComponents extends StatelessWidget {
 
                                       height:  MediaQuery.of(context).size.height * 0.15,
                                     ),
-                                    Image.asset("assets/bookmark.png"),
+                          bookMark(),
                                     // Container(
                                     //   width: MediaQuery.of(context).size.width*.25,
                                     //   height: 110.h,
@@ -176,7 +177,7 @@ class recomendedMovieItem extends StatelessWidget {
                     fit: BoxFit.cover,
                     width: MediaQuery.of(context).size.width * 0.25,
                   ),
-                  Image.asset("assets/bookmark.png"),
+          bookMark(),
                   // Container(
                   //   width: MediaQuery.of(context).size.width*.25,
                   //   height: 110.h,
