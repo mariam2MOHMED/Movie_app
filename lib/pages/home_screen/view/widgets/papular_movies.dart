@@ -64,7 +64,8 @@ class popularMovies extends StatelessWidget {
                                 imageUrl: ApiConstant.imageurl(papularItem.backdropPath),
                                 errorWidget:(context,url,error)=>
                                     Icon(Icons.image_not_supported,size:40.sp ,),
-                                placeholder: (context,url)=>Shimmer.fromColors(
+                                placeholder: (context,url)=>
+                                    Shimmer.fromColors(
                                   baseColor: Colors.grey[850]!,
                                   highlightColor: Colors.grey[800]!,
                                   child: Container(

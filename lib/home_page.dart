@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/pages/browsePage/browse.dart';
 import 'package:movie_app/pages/home_screen/Home_screen.dart';
 import 'package:movie_app/pages/home_screen/data/data_sources/movie_remote_data_sources.dart';
 import 'package:movie_app/pages/home_screen/data/repository/base_movie_repositry.dart';
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget>tabs=[
     HomeScreen(),
     searchScreen(),
-    BrowseScreen(),
+    BrowseCategoriesScreen(),
     watchListScreen()
   ];
   int currIndex=0;
