@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/pages/home_screen/api/api_constant.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_bloc.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_state.dart';
 import '../../../../shared/theme/theme.dart';
+import '../../../movie_Detials/view/screens/movie_details_screen.dart';
 import 'book_mark.dart';
 // class newReleaseMovieItem extends StatelessWidget {
 //   const newReleaseMovieItem({super.key});
@@ -56,7 +58,9 @@ builder: (context,state){
       children: [
         SizedBox(height: 10.h,),
         Text(" New Releases ",
-          style:Theme.of(context).textTheme.titleLarge ,),
+          style:Theme.of(context).textTheme.titleLarge!.copyWith(
+
+          ) ,),
         SizedBox(height: 10.h,),
         Expanded(
           child: ListView.separated(
@@ -67,7 +71,14 @@ builder: (context,state){
                   padding: const EdgeInsets.only(left: 10,top: 5),
                   child:
                   GestureDetector(
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => MovieDetailsScreen(
+                              id: movie.id,
+                            ),
+                          ));
+                    },
                     child: Stack(
                       alignment: AlignmentDirectional.topStart,
                       children: [
@@ -83,7 +94,7 @@ builder: (context,state){
                           ,color: AppTheme.grey,size: 35,),
                         ),
                         //book mark
-                        bookMark(),
+                      bookMark(),
 
 
                       ],

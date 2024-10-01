@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:movie_app/movie_details_screen.dart';
+import 'package:movie_app/pages/movie_Detials/view/screens/movie_details_screen.dart';
 import 'package:movie_app/pages/home_screen/view/widgets/book_mark.dart';
 import 'package:shimmer/shimmer.dart';
 import 'api_service.dart';
@@ -66,21 +66,14 @@ class _MoviesByGenreScreenState extends State<MoviesByGenreScreen> {
                           highlightColor: Colors.grey[800]!,
                           child: Icon(Icons.menu_rounded,
                             size: 40,color: Colors.grey,)
-                          // Container(
-                          //   height: MediaQuery.of(context).size.height*0.1,
-                          //   width: MediaQuery.of(context).size.width*0.2,
-                          //   decoration: BoxDecoration(
-                          //     color: Colors.white,
-                          //     borderRadius: BorderRadius.circular(8.0),
-                          //   ),
-                          // ),
+
                         ),
                         errorWidget: (context, url, error) => Icon(
                             Icons.image_not_supported_rounded),
                         fadeInDuration: Duration(milliseconds: 500),
                         fadeOutDuration: Duration(milliseconds: 500),
                       ),
-                      bookMark()
+                      // bookMark()
                     ],
                   ),
                   title: Text(
@@ -103,7 +96,7 @@ class _MoviesByGenreScreenState extends State<MoviesByGenreScreen> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => MovieDetailsScreen(
-                         
+                         id: movies[index]['id'],
                         ),
                       ),
                     );

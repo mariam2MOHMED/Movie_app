@@ -7,6 +7,7 @@ import 'package:movie_app/pages/home_screen/data/repository/movie_repositry.dart
 import 'package:movie_app/pages/home_screen/view_model/new_release_movie.dart';
 import 'package:movie_app/pages/home_screen/view_model/papular_view_model.dart';
 import 'package:movie_app/pages/home_screen/view_model/recommended_view_model.dart';
+import 'package:movie_app/pages/movie_Detials/view_model/base_view_model.dart';
 import 'package:movie_app/shared/request.dart';
 
 class MoviesBloc extends Bloc<MoviesEvent,MoviesStates>{
@@ -25,9 +26,10 @@ class MoviesBloc extends Bloc<MoviesEvent,MoviesStates>{
    on<GetPapulorMovieEvent>((event, emit)async {
      BaseMovieRemoteDataSources baseMovieRemoteDataSources=
      MovieRemoteDataSources();
+     NoParameters noParameters=NoParameters();
      BaseMovieRepository baseMovieRepository=
      MovieRepositry(baseMovieRemoteDataSources);
-  final res= await GetPapularMovieViewModel(baseMovieRepository).extxute();
+  final res= await GetPapularMovieViewModel(baseMovieRepository).call(noParameters);
 // print(res);
 //   emit(MoviesStates(papularMoviesStates:RequestState.loaded ));
 
@@ -55,10 +57,11 @@ papularMovies: r    )
 on<GetNewReleaseMovieEvent>((event, emit)async {
   BaseMovieRemoteDataSources baseMovieRemoteDataSources=
   MovieRemoteDataSources();
+  NoParameters noParameters=NoParameters();
   BaseMovieRepository baseMovieRepository=
   MovieRepositry(baseMovieRemoteDataSources);
   final res=await GetNewReleaseMovieiewModel(baseMovieRepository).
-  getNewRelease();
+  call(noParameters);
   res.fold((l) =>emit(
       state.copyWith(
           newReleeaseMessage: l.message,
@@ -85,10 +88,11 @@ on<GetNewReleaseMovieEvent>((event, emit)async {
    on<GetRecommendedMovieEvent>((event, emit)async {
      BaseMovieRemoteDataSources baseMovieRemoteDataSources=
      MovieRemoteDataSources();
+     NoParameters noParameters=NoParameters();
      BaseMovieRepository baseMovieRepository=
      MovieRepositry(baseMovieRemoteDataSources);
      final res=await GetRecommendedMoviesiewModel(baseMovieRepository).
-     getRecommanded();
+     call(noParameters);
      res.fold((l) =>emit(
          state.copyWith(
              topRatedMessage: l.message,

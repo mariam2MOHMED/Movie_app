@@ -10,7 +10,7 @@ import 'package:movie_app/pages/home_screen/cubit/movies_state.dart';
 import 'package:movie_app/shared/request.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../../../movie_details_screen.dart';
+import '../../../movie_Detials/view/screens/movie_details_screen.dart';
 import '../../../../../shared/theme/theme.dart';
 import '../../api/api_constant.dart';
 import '../../cubit/movies_bloc.dart';
@@ -49,7 +49,15 @@ class popularMovies extends StatelessWidget {
                   child: CarouselSlider(items:
                   state.papularMovies.map((papularItem)
                   =>     GestureDetector(
-                    onTap: (){},
+                    onTap: (){
+
+                      Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => MovieDetailsScreen(
+                              id: state.papularMovies[state.papularMovies.indexOf(papularItem)].id,
+                            ),
+                          ));
+                      },
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

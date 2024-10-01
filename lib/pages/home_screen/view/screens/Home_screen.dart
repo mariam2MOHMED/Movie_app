@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/movie_details_screen.dart';
+import 'package:movie_app/pages/movie_Detials/view/screens/movie_details_screen.dart';
 import 'package:movie_app/pages/home_screen/api/api_services.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_bloc.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_events.dart';
@@ -19,9 +19,9 @@ import 'package:movie_app/pages/home_screen/view/widgets/papular_movies.dart';
 import 'package:movie_app/pages/home_screen/view/widgets/new_release_movies.dart';
 import 'package:movie_app/pages/home_screen/view_model/papular_view_model.dart';
 
-import '../../shared/services/services_locator.dart';
-import '../../shared/theme/theme.dart';
-import 'view/widgets/recomended_film.dart';
+import '../../../../shared/services/services_locator.dart';
+import '../../../../shared/theme/theme.dart';
+import '../widgets/recomended_film.dart';
 
 class HomeScreen extends StatelessWidget {
 

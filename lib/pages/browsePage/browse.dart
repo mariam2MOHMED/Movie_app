@@ -30,7 +30,7 @@ class _BrowseCategoriesScreenState extends State<BrowseCategoriesScreen> {
     'assets/horror.png',
     'assets/music.jpg',
     'assets/mystery.png',
-    'assets/romance.png',
+    'assets/remonatic.jpg',
     'assets/science fiction.png',
     'assets/tv movie.png',
     'assets/thriller.png',
@@ -95,7 +95,9 @@ class _BrowseCategoriesScreenState extends State<BrowseCategoriesScreen> {
                       children: [
                         Image.asset(browseImages[index],
                           width: MediaQuery.of(context).size.width,
-                          fit: BoxFit.cover,),
+                          fit: BoxFit.cover,
+                        height:MediaQuery.of(context).size.height*0.2 ,
+                        ),
                         Container(
                           width: MediaQuery.of(context).size.width,
                           color:Colors.grey[700] ,

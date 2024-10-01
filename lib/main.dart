@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/movie_details_screen.dart';
+import 'package:movie_app/pages/movie_Detials/view/screens/movie_details_screen.dart';
 
 import 'package:movie_app/home_page.dart';
+import 'package:movie_app/pages/auth/screens/login_screen.dart';
+import 'package:movie_app/pages/auth/screens/register_screen.dart';
 import 'package:movie_app/shared/services/services_locator.dart';
 import 'package:movie_app/shared/theme/theme.dart';
 
@@ -15,7 +17,7 @@ void main()async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MovieApp());
+  runApp( MovieApp());
 }
 
 class MovieApp extends StatelessWidget {
@@ -31,12 +33,7 @@ class MovieApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,
-      routes: {
-          HomePage.routeName:(_)=>HomePage(),
-         MovieDetailsScreen.routeName:(_)=>const MovieDetailsScreen()
-
-      },
-        initialRoute:   HomePage.routeName,
+    home: HomePage()
       ),
     );
   }

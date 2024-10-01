@@ -11,6 +11,8 @@ class AppTheme{
   //1A1A1A
   static const Color black=Color(0xFF1A1A1A);
   //514F4F
+  //707070
+  static const Color divider=Color(0xFF707070);
   static const Color bookMarkColor=Color(0xFF514F4F);
   static const Color containerColor=Color(0xFF282A28);
   // static const Color recomendedFilm=Color(0xFF707070) ;
