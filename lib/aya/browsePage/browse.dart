@@ -59,7 +59,8 @@ class _BrowseCategoriesScreenState extends State<BrowseCategoriesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title:
+        Text(
           'Browse Screen',
           style: TextStyle(
               fontWeight: 
@@ -68,7 +69,8 @@ class _BrowseCategoriesScreenState extends State<BrowseCategoriesScreen> {
       ),
       body: genres.isEmpty
           ? Center(child: CircularProgressIndicator())
-          : GridView.builder(
+          :
+      GridView.builder(
               padding: const EdgeInsets.all(10.0),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

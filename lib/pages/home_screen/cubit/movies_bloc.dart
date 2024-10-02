@@ -38,19 +38,12 @@ res.fold((l) =>emit(
     papularMoviesStates: RequestState.error,
     papularMessage: l.message,
   )
-//     MoviesStates(
-//     papularMessage: l.message,
-//     papularMoviesStates: RequestState.error
-// )
+
 ) , (r)=>emit(
     state.copyWith(
       papularMoviesStates: RequestState.loaded,
 papularMovies: r    )
-//     MoviesStates(
-//   papularMoviesStates: RequestState.loaded,
-//
-//   papularMovies: r
-// )
+
 ) );
      });
 /////
@@ -67,21 +60,13 @@ on<GetNewReleaseMovieEvent>((event, emit)async {
           newReleeaseMessage: l.message,
           newReleeaseMoviesStates: RequestState.error
       )
-  //     MoviesStates(
-  //     newReleeaseMessage: l.message,
-  //     newReleeaseMoviesStates: RequestState.error
-  // )
+
   ) , (r)=>emit(
       state.copyWith(
           newReleeaseMoviesStates: RequestState.loaded,
-
           newReleeaseMovies: r
       )
-  //     MoviesStates(
-  //     newReleeaseMoviesStates: RequestState.loaded,
-  //
-  //     newReleeaseMovies: r
-  // )
+
   ) );
 });
 

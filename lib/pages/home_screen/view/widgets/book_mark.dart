@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/pages/watch_list/data/models/watchList.dart';
 import 'package:movie_app/shared/theme/theme.dart';
+
+import '../../../watch_list/services/firebase_services.dart';
 
 
 
 class bookMark extends StatelessWidget {
-   bookMark({super.key});
 
   @override
   Widget build(BuildContext context) {
     return    GestureDetector(
-        onTap: (){},
+        onTap: ()async{
+
+        },
         child: Image.asset("assets/bookmark.png"));
   }
 }

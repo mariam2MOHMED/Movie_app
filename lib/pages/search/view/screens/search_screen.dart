@@ -87,71 +87,83 @@ class searchScreen extends StatelessWidget {
                     return GestureDetector(
                       onTap: (){
                         Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context)=>MovieDetailsScreen(id: movie.id)))
+                          MaterialPageRoute(builder:
+                              (context)=>MovieDetailsScreen(id: movie.id)))
                         ;
                       },
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 24),
-                        child: ListTile(
-                         leading:      Stack(
-                           alignment: Alignment.topLeft,
-                           children: [
-                             CachedNetworkImage(imageUrl:
-                             'https://image.tmdb.org/t/p/w200${movie.backDropPath??""}',
-                                 fit: BoxFit.cover,
-                                 errorWidget: (context,url,error){
-                                   return Icon(Icons.image_not_supported,size: 30.sp,);
-                                 },
-                                 width: MediaQuery.of(context).size.width*0.3,
-                                 height:MediaQuery.of(context).size.height*0.3,
-                                 placeholder: (context, url) =>
-                                     Shimmer.fromColors(
-                                         baseColor: Colors.grey[850]!,
-                                         highlightColor: Colors.grey[800]!,
-                                         child: Icon(Icons.menu_rounded,
-                                           size: 40,color: Colors.grey,)
-                                     )),
-                             bookMark()
-                           ],
-                         ),
-                            title:  Text(
-                              movie.title ?? "Movie Title",
-                              maxLines: 2,
+                      child:
+                      ListTile(
+
+                        leading: movie.backDropPath != null
+                            ?
+                        Stack(
+                          alignment: Alignment.topLeft,
+                          children: [
+                            CachedNetworkImage(imageUrl:
+                            'https://image.tmdb.org/t/p/w200${movie.backDropPath}',
+                                fit: BoxFit.cover,
+                                width: MediaQuery.of(context).size.width*0.35,
+                                height:MediaQuery.of(context).size.width*0.2,
+                                placeholder: (context, url) =>
+                                    Shimmer.fromColors(
+                                        baseColor: Colors.grey[850]!,
+                                        highlightColor: Colors.grey[800]!,
+                                        child: Icon(Icons.menu_rounded,
+                                          size: 40,color: Colors.grey,)
+                                    )),
+                            bookMark()
+                          ],
+                        )
+
+                            : SizedBox(),
+                        title: Text(movie.title ?? 'No title',
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),),
+
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(movie.releaseDate.toString()?? 'Unknown',
+                              maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: GoogleFonts.inter(
-                                  color: AppTheme.white,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            subtitle: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                              Text(
-                              movie.releaseDate!??"2019",
-                              style: GoogleFonts.inter(
-                                  color: AppTheme.grey,
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          SizedBox(height: 5.h),
-                          Row(
-                            children: [
-                              Icon(Icons.star,color: AppTheme.gold,),
-                              SizedBox(width: 5.w,),
-                              Text(
-                                movie.voteAverage?.toString().substring(0,3) ?? "",
-                                style: GoogleFonts.inter(
-                                    color: AppTheme.grey,
-                                    fontSize: 10.sp,
-                                    fontWeight: FontWeight.w500),
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.white,
                               ),
-                            ],
-                          )
+                            ),
+                            SizedBox(height: 5.h,),
+                            Row(
+                              children: [
+                                Icon(Icons.star,color: AppTheme.gold,size: 12.sp,),
+                                SizedBox(width: 3.w,),
+                                Text(movie.voteAverage.toString().substring(0,3)?? 'Unknown',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ],
                             ),
-
-                        )
+                          ],
+                        ),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  MovieDetailsScreen(
+                                id: movie.id,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     );
                   },

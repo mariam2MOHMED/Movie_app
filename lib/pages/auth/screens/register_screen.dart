@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movie_app/pages/auth/B-logic/firebase_services.dart';
 import 'package:movie_app/pages/auth/screens/login_screen.dart';
 import 'package:movie_app/pages/auth/view/widgets/custom_auth_txt_field.dart';
 import 'package:movie_app/pages/auth/view/widgets/custom_dft_auth_btn.dart';
@@ -18,12 +19,7 @@ class registerScreen extends StatefulWidget {
 }
 
 class _registerScreenState extends State<registerScreen> {
-  final auth=FirebaseAuth.instance;
-  void createUser(String email,String password)async{
-    await auth.createUserWithEmailAndPassword(email: email, password: password);
-    print("email $email");
-    print("password $password");
-  }
+
 
   var emailControll=TextEditingController();
   var passwordControll=TextEditingController();
@@ -58,7 +54,7 @@ mainAxisAlignment: MainAxisAlignment.center,
               SizedBox(height: 24.h,),
               customButton(txt: "Create Account", onPressed: (){
                 try{
-                  createUser(emailControll.text, passwordControll.text);
+                 Auth.login(emailControll.text, passwordControll.text);
                   Navigator.of(context).pushNamed(loginScreen.routeName);
                 }catch(e){
                   print("the error is $e");

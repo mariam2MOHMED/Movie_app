@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:movie_app/pages/Search_page/data/models/search_model.dart';
-import 'package:movie_app/pages/Search_page/view_model/get_search.dart';
+
+import 'package:movie_app/pages/browse/data/models/Browse_model.dart';
+import 'package:movie_app/pages/browse/view_model/get_browse_view_model.dart';
+import 'package:movie_app/pages/genere/data/genere_model.dart';
+import 'package:movie_app/pages/genere/view_model/genere_view_model.dart';
 import 'package:movie_app/pages/home_screen/api/api_constant.dart';
 import 'package:movie_app/pages/home_screen/data/models/error_msg_model.dart';
 import 'package:movie_app/pages/home_screen/data/models/movie_model.dart';
@@ -11,6 +14,8 @@ import 'package:movie_app/pages/movie_Detials/view_model/movie_detials_view_mode
 import 'package:movie_app/shared/error/excepcation.dart';
 
 import '../../../movie_Detials/data/models/movie_Detials_model.dart';
+import '../../../search/data/models/search_model.dart';
+import '../../../search/view_model/get_search.dart';
 abstract class BaseMovieRemoteDataSources{
   Future<List<MovieModel>>getPapularMovie();
   Future<List<MovieModel>>getNewReleaseMovie();
@@ -21,6 +26,11 @@ abstract class BaseMovieRemoteDataSources{
   Future<List<SearchModel>>getSearchMovies(
       SearchParameters searchParameters
       );
+  Future<List<BrowseModel>>getBrowseMovies(
+      );
+  Future<List<GenereModel>>getGenereMovies(
+      GenerParameters generParameters); 
+
   Future<MoveDetialsModel>getMovieDetials(MovieDetialsParameter movieDetialsParameter);
 }
 class MovieRemoteDataSources extends BaseMovieRemoteDataSources{
@@ -113,6 +123,34 @@ fromJson(response.data));
       return List<SearchModel>.from((response.data["results"]
       as List
       ).map((e) => SearchModel.fromJson(e)));
+    } else {
+      throw ServerException(errorMessageModel: ErrorMessageModel.
+      fromJson(response.data));
+    }
+  }
+
+  @override
+  Future<List<BrowseModel>> getBrowseMovies() async{
+    final dio = Dio();
+    final response = await dio.get(ApiConstant.geners);
+    if (response.statusCode == 200) {
+      return List<BrowseModel>.from((response.data["genres"]
+      as List
+      ).map((e) => BrowseModel.fromJson(e)));
+    } else {
+      throw ServerException(errorMessageModel: ErrorMessageModel.
+      fromJson(response.data));
+    }
+  }
+
+  @override
+  Future<List<GenereModel>> getGenereMovies(GenerParameters generParameters) async{
+    final dio = Dio();
+    final response = await dio.get(ApiConstant.genersByMovies(generParameters.id));
+    if (response.statusCode == 200) {
+      return List<GenereModel>.from((response.data["results"]
+      as List
+      ).map((e) => GenereModel.fromJson(e)));
     } else {
       throw ServerException(errorMessageModel: ErrorMessageModel.
       fromJson(response.data));

@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/pages/home_screen/api/api_constant.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_bloc.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_state.dart';
+import 'package:movie_app/pages/watch_list/data/models/watchList.dart';
 import '../../../../shared/theme/theme.dart';
 import '../../../movie_Detials/view/screens/movie_details_screen.dart';
 import 'book_mark.dart';
@@ -94,7 +95,9 @@ builder: (context,state){
                           ,color: AppTheme.grey,size: 35,),
                         ),
                         //book mark
-                      bookMark(),
+                      bookMark(
+
+                      ),
 
 
                       ],

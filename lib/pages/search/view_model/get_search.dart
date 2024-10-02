@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:movie_app/pages/Search_page/data/models/search_class.dart';
 import 'package:movie_app/pages/home_screen/data/repository/base_movie_repositry.dart';
 import 'package:movie_app/pages/movie_Detials/view_model/base_view_model.dart';
 import 'package:movie_app/shared/error/failure.dart';
+
+import '../data/models/search_class.dart';
 
 class GetSearchViewModel extends BaseViewModel<List<Search>,SearchParameters>{
   final BaseMovieRepository baseMovieRepository;

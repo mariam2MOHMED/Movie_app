@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/home_page.dart';
+import 'package:movie_app/pages/auth/B-logic/firebase_services.dart';
 import 'package:movie_app/pages/home_screen/view/screens/Home_screen.dart';
 
 import '../../../shared/theme/theme.dart';
@@ -18,10 +19,7 @@ class loginScreen extends StatefulWidget {
 }
 
 class _loginScreenState extends State<loginScreen> {
-  final auth=FirebaseAuth.instance;
-  void login(String email,String password)async{
-    await auth.signInWithEmailAndPassword(email: email, password: password);
-  }
+
   var emailControll=TextEditingController();
   var passwordControll=TextEditingController();
   @override
@@ -56,7 +54,7 @@ class _loginScreenState extends State<loginScreen> {
               SizedBox(height: 24.h,),
               customButton(txt: "Login", onPressed: (){
                 try{
-                  login(emailControll.text, passwordControll.text);
+                Auth.login(emailControll.text, passwordControll.text);
                   Navigator.of(context).
                   pushNamed(HomePage.routeName);
                 }catch(e){

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/pages/Search_page/view/screens/search_screen.dart';
-import 'package:movie_app/pages/browsePage/browse.dart';
+
+import 'package:movie_app/pages/browse/view/screens/browse_screen.dart';
+
 import 'package:movie_app/pages/home_screen/view/screens/Home_screen.dart';
 import 'package:movie_app/pages/home_screen/data/data_sources/movie_remote_data_sources.dart';
 import 'package:movie_app/pages/home_screen/data/repository/base_movie_repositry.dart';
@@ -10,7 +11,9 @@ import 'package:movie_app/pages/home_screen/data/repository/movie_repositry.dart
 import 'package:movie_app/pages/home_screen/view_model/new_release_movie.dart';
 import 'package:movie_app/pages/home_screen/view_model/papular_view_model.dart';
 import 'package:movie_app/pages/home_screen/view_model/recommended_view_model.dart';
-import 'package:movie_app/pages/search/search_screen.dart';
+import 'package:movie_app/pages/search/view/screens/search_screen.dart';
+
+import 'package:movie_app/pages/watch_list/view/screens/watch_list.dart';
 class HomePage extends StatefulWidget {
   static const String routeName="/homeScreen";
 
@@ -23,8 +26,8 @@ class _HomePageState extends State<HomePage> {
   List<Widget>tabs=[
     HomeScreen(),
     searchScreen(),
-    BrowseCategoriesScreen(),
-    WatchList()
+    BrowseScreen(),
+    watchList()
   ];
   int currIndex=0;
   @override
@@ -64,12 +67,3 @@ body:tabs[currIndex],
   }
 
 }
-class WatchList extends StatelessWidget {
-  const WatchList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-

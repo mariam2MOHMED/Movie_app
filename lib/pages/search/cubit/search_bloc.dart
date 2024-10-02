@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:movie_app/pages/Search_page/data/models/search_class.dart';
-import 'package:movie_app/pages/Search_page/view_model/get_search.dart';
+
 import 'package:movie_app/shared/request.dart';
+
+import '../data/models/search_class.dart';
+import '../view_model/get_search.dart';
 
 part 'search_event.dart';
 part 'search_state.dart';

@@ -136,7 +136,8 @@ class _SearchScreenState extends State<SearchScreen> {
                     itemCount: searchResults.length,
                     itemBuilder: (context, index) {
                       final movie = searchResults[index];
-                      return ListTile(
+                      return
+                        ListTile(
 
                         leading: movie['poster_path'] != null
                             ?

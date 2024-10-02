@@ -1,4 +1,5 @@
-import 'package:movie_app/pages/Search_page/data/models/search_class.dart';
+
+import 'package:movie_app/pages/search/data/models/search_class.dart';
 
 class SearchModel extends Search{
    SearchModel(
