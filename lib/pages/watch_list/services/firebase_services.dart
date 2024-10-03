@@ -1,19 +1,18 @@
-//
-// import 'package:cloud_firestore/cloud_firestore.dart';
-//
-// import '../data/models/watchList.dart';
-//
-// class WatchListService {
-// static  final CollectionReference watchListCollection =
-//   FirebaseFirestore.instance.collection('watchList');
-//
-//   static Future<void> addItemToWatchList(WatchListModel item) async {
-//     try {
-//       await watchListCollection.add(item.toJson());
-//     } catch (e) {
-//       print('Error adding item to watch list: $e');
-//     }
-//   }
-//
-// // Other methods for retrieving, updating, and deleting items
-// }
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import '../data/models/watchList.dart';
+
+class WatchListService {
+
+static  final auth  =FirebaseAuth.instance;
+    static Future<void>addToWatchList(String backDropPath,
+    String title,String releaseDate)async{
+  await FirebaseFirestore.instance.collection('Users')
+      .doc(auth.currentUser!.uid).collection('watchlist').add(
+      {'backDropPath': backDropPath,
+        'releaseDate':releaseDate
+        ,'title':title,});
+}
+}

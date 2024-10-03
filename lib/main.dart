@@ -33,7 +33,7 @@ class MovieApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,
-    home: HomePage()
+    home: registerScreen()
       ),
     );
   }

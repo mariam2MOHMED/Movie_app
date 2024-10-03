@@ -54,8 +54,12 @@ mainAxisAlignment: MainAxisAlignment.center,
               SizedBox(height: 24.h,),
               customButton(txt: "Create Account", onPressed: (){
                 try{
-                 Auth.login(emailControll.text, passwordControll.text);
-                  Navigator.of(context).pushNamed(loginScreen.routeName);
+                 Auth.createUser(emailControll.text.trim(),
+                     passwordControll.text.trim());
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder:
+                        (context)=>loginScreen())
+                  );
                 }catch(e){
                   print("the error is $e");
                 }
@@ -70,7 +74,10 @@ mainAxisAlignment: MainAxisAlignment.center,
                   ),),
                   InkWell(
                     onTap: (){
-                      Navigator.of(context).pushNamed(loginScreen.routeName);
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder:
+                              (context)=>loginScreen())
+                      );
                     },
                     child: Text("Login",style: GoogleFonts.abhayaLibre(
                         fontSize:20.sp,

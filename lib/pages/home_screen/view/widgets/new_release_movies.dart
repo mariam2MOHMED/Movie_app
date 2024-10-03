@@ -9,6 +9,7 @@ import 'package:movie_app/pages/home_screen/api/api_constant.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_bloc.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_state.dart';
 import 'package:movie_app/pages/watch_list/data/models/watchList.dart';
+import 'package:movie_app/pages/watch_list/view/widget/watch_item.dart';
 import '../../../../shared/theme/theme.dart';
 import '../../../movie_Detials/view/screens/movie_details_screen.dart';
 import 'book_mark.dart';
@@ -46,6 +47,7 @@ class newReleaseComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return   BlocBuilder<MoviesBloc,MoviesStates>(
 builder: (context,state){
   return  Container(
@@ -67,7 +69,9 @@ builder: (context,state){
           child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context,index){
+                final movies = state.newReleeaseMovies?.elementAt(index);
                 final movie=state.newReleeaseMovies[index];
+                //final new= state.newReleaseMovie[index];
                 return    Padding(
                   padding: const EdgeInsets.only(left: 10,top: 5),
                   child:
@@ -76,7 +80,7 @@ builder: (context,state){
                       Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => MovieDetailsScreen(
-                              id: movie.id,
+                              id: movie.id!,
                             ),
                           ));
                     },
@@ -85,7 +89,7 @@ builder: (context,state){
                       children: [
 
                         CachedNetworkImage(
-                          imageUrl: ApiConstant.imageurl(movie.backdropPath),
+                          imageUrl: ApiConstant.imageurl(movie.backdropPath!),
                           fit: BoxFit.cover,
                           width: MediaQuery.of(context).size.width * 0.25,
                           height: MediaQuery.of(context).size.height * 0.2,
@@ -95,9 +99,7 @@ builder: (context,state){
                           ,color: AppTheme.grey,size: 35,),
                         ),
                         //book mark
-                      bookMark(
-
-                      ),
+                        BookMarkWidget(movie)
 
 
                       ],

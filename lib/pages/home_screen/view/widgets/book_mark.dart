@@ -7,17 +7,17 @@ import '../../../watch_list/services/firebase_services.dart';
 
 
 
-class bookMark extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return    GestureDetector(
-        onTap: ()async{
-
-        },
-        child: Image.asset("assets/bookmark.png"));
-  }
-}
+// class bookMark extends StatelessWidget {
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return    GestureDetector(
+//         onTap: ()async{
+//           WatchListService.addToWatchList("backDropPath", "title", "releaseDate");
+//         },
+//         child: Image.asset("assets/bookmark.png"));
+//   }
+// }
 // class BookMarkWidget extends StatefulWidget {
 //
 //   Movies movie;

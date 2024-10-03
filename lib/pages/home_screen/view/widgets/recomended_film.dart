@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/pages/home_screen/api/api_constant.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_bloc.dart';
 import 'package:movie_app/pages/home_screen/cubit/movies_state.dart';
+import 'package:movie_app/pages/watch_list/view/widget/watch_item.dart';
 
 
 import '../../../../shared/theme/theme.dart';
@@ -51,7 +52,7 @@ class recommendedComponents extends StatelessWidget {
                             Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) => MovieDetailsScreen(
-                                    id: movie.id,
+                                    id: movie.id!,
                                   ),
                                 ));
                           },
@@ -70,12 +71,12 @@ class recommendedComponents extends StatelessWidget {
                                   alignment: AlignmentDirectional.topStart,
                                   children: [
                                     CachedNetworkImage(
-                                    imageUrl: ApiConstant.imageurl(movie.backdropPath),
+                                    imageUrl: ApiConstant.imageurl(movie.backdropPath!),
                                       fit: BoxFit.cover,
 
                                       height:  MediaQuery.of(context).size.height * 0.15,
                                     ),
-                                    bookMark()
+                                 BookMarkWidget(movie)
 
                                     // Container(
                                     //   width: MediaQuery.of(context).size.width*.25,
@@ -125,7 +126,7 @@ class recommendedComponents extends StatelessWidget {
                                   height: 4.h,
                                 ),
                                 Text(
-                                  movie.title,
+                                  movie.title!,
                                   maxLines: 2,
                                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                                       color: AppTheme.white, fontWeight: FontWeight.bold),

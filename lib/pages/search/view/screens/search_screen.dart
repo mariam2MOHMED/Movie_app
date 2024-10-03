@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:movie_app/pages/home_screen/view/widgets/book_mark.dart';
 import 'package:movie_app/pages/movie_Detials/view/screens/movie_details_screen.dart';
+import 'package:movie_app/pages/watch_list/view/widget/watch_item.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../shared/request.dart';
@@ -97,7 +98,6 @@ class searchScreen extends StatelessWidget {
                         leading: movie.backDropPath != null
                             ?
                         Stack(
-                          alignment: Alignment.topLeft,
                           children: [
                             CachedNetworkImage(imageUrl:
                             'https://image.tmdb.org/t/p/w200${movie.backDropPath}',
@@ -111,7 +111,7 @@ class searchScreen extends StatelessWidget {
                                         child: Icon(Icons.menu_rounded,
                                           size: 40,color: Colors.grey,)
                                     )),
-                            bookMark()
+
                           ],
                         )
 

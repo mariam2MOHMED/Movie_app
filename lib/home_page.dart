@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
     HomeScreen(),
     searchScreen(),
     BrowseScreen(),
-    watchList()
+    WatchList()
   ];
   int currIndex=0;
   @override

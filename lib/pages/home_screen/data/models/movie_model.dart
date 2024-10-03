@@ -3,7 +3,7 @@
 import 'movie.dart';
 
 class MovieModel extends Movie{
- const MovieModel({required super.id,
+  MovieModel({required super.id,
     required super.backdropPath,
     required super.genre_ids,
     required super.title,
@@ -11,7 +11,7 @@ class MovieModel extends Movie{
     required super.overView,
     required super.voteAverage,
     required super.releaseData});
- factory MovieModel.fromJson(Map<String,dynamic>json)=>
+ factory MovieModel.fromJson(dynamic json)=>
      MovieModel(id: json['id'],
          backdropPath:json['backdrop_path'],
          posterPath: json['poster_path'],

@@ -1,19 +1,20 @@
 
 import 'package:equatable/equatable.dart';
+import 'package:movie_app/aya/search/model.dart';
 
 
 
 class Movie extends Equatable{
   final int id;
-  final String backdropPath;
-  final String posterPath;
+  final  String backdropPath;
+  final  String posterPath;
   //posterPath
-  final List<int> genre_ids;
+  final   List<int> genre_ids;
   final String title;
   final String overView;
-  final double voteAverage;
-  final String releaseData;
-const  Movie({
+  final  double voteAverage;
+  final  String releaseData;
+  Movie({
     required this.id,
     required this.backdropPath,
    required this.posterPath,
@@ -25,6 +26,25 @@ const  Movie({
 
   required this.releaseData,
 });
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+
+    map['backdrop_path'] = backdropPath;
+    map['genre_ids'] = genre_ids;
+    map['id'] = id;
+
+    map['original_title'] = title;
+    map['overview'] = overView;
+
+    map['poster_path'] = posterPath;
+    map['release_date'] = releaseData;
+    map['title'] = title;
+
+    map['vote_average'] = voteAverage;
+
+    return map;
+  }
 
   @override
   // TODO: implement props

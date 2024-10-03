@@ -20,8 +20,8 @@ class loginScreen extends StatefulWidget {
 
 class _loginScreenState extends State<loginScreen> {
 
-  var emailControll=TextEditingController();
-  var passwordControll=TextEditingController();
+  TextEditingController emailControll=TextEditingController();
+  TextEditingController passwordControll=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,9 +54,13 @@ class _loginScreenState extends State<loginScreen> {
               SizedBox(height: 24.h,),
               customButton(txt: "Login", onPressed: (){
                 try{
-                Auth.login(emailControll.text, passwordControll.text);
+                Auth.login(emailControll.text.trim(),
+                    passwordControll.text.trim());
                   Navigator.of(context).
-                  pushNamed(HomePage.routeName);
+                  push(
+                      MaterialPageRoute(builder:
+                          (context)=>HomePage())
+                  );
                 }catch(e){
                   print("the error in sign in is $e");
                 }

@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/pages/home_screen/view/widgets/book_mark.dart';
 import 'package:movie_app/pages/movie_Detials/cubit/movie_detials_bloc.dart';
+import 'package:movie_app/pages/watch_list/view/widget/watch_item.dart';
 import 'package:movie_app/shared/request.dart';
 
 import 'package:movie_app/pages/movie_Detials/view/widget/default_elevated_button.dart';
@@ -108,7 +109,7 @@ fit: BoxFit.cover,
                           'https://image.tmdb.org/t/p/w500${state.movieDetial!.posterPath}',
                           height: MediaQuery.of(context).size.height*2,
                         ),
-                        bookMark()
+
                       ],
                     ),
                     Padding(
@@ -276,7 +277,7 @@ class recomendedMovieItem extends StatelessWidget {
 
                          height:  MediaQuery.of(context).size.height * 0.15,
                        ),
-                       bookMark()
+
 
                        // Container(
                        //   width: MediaQuery.of(context).size.width*.25,

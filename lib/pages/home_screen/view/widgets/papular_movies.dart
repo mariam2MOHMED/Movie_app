@@ -54,7 +54,7 @@ class popularMovies extends StatelessWidget {
                       Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => MovieDetailsScreen(
-                              id: state.papularMovies[state.papularMovies.indexOf(papularItem)].id,
+                              id: state.papularMovies[state.papularMovies.indexOf(papularItem)].id!,
                             ),
                           ));
                       },
@@ -69,7 +69,7 @@ class popularMovies extends StatelessWidget {
                               height: MediaQuery.of(context).size.height*0.2,
                               child: CachedNetworkImage(
                                 fit: BoxFit.cover,
-                                imageUrl: ApiConstant.imageurl(papularItem.backdropPath),
+                                imageUrl: ApiConstant.imageurl(papularItem.backdropPath!),
                                 errorWidget:(context,url,error)=>
                                     Icon(Icons.image_not_supported,size:40.sp ,),
                                 placeholder: (context,url)=>
@@ -99,7 +99,7 @@ class popularMovies extends StatelessWidget {
                         SizedBox(height: 5.h,),
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
-                          child: Text(papularItem.title,
+                          child: Text(papularItem.title!,
                             style:Theme.of(context).textTheme.titleLarge ,),
                         ),
 
